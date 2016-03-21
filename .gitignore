@@ -19,3 +19,5 @@ sysinfo.txt
 .DS_Store
 desktop.ini
 .share_info
+*.orig
+*.orig.meta
