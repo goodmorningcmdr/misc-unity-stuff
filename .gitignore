@@ -26,3 +26,7 @@ Test.unity
 Test.unity.meta
 DOTweenSettings.asset
 DOTweenSettings.asset.meta
+UnityConnectSettings.asset
+UnityAdsSettings.asset
+NetWorkManager.asset
+EditorSettings.asset
