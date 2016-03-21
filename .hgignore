@@ -1,0 +1,18 @@
+syntax: glob
+Library
+Temp
+obj
+
+*.pidb
+*.sln
+*.userprefs
+*.csproj
+*.unityproj
+*.suo
+
+.share_info
+desktop.ini
+.DS_Store
+
+*.orig
+*.orig.meta
