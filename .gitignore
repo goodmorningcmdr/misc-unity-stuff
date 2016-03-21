@@ -23,5 +23,6 @@ desktop.ini
 *.orig.meta
 
 Test.unity
+Test.unity.meta
 DOTweenSettings.asset
 DOTweenSettings.asset.meta
