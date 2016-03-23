@@ -26,7 +26,7 @@ namespace Kino
 {
     [ExecuteInEditMode]
     [RequireComponent(typeof(Camera))]
-    [AddComponentMenu("Kino Image Effects/Mirror")]
+    [AddComponentMenu("Image Effects/Kino/Mirror")]
     public class Mirror : MonoBehaviour
     {
         #region Public Properties

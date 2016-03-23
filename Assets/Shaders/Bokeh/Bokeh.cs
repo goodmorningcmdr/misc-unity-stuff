@@ -24,6 +24,7 @@ using UnityEngine;
 
 namespace Kino
 {
+	[AddComponentMenu("Image Effects/Kino/Bokeh")]
     [ExecuteInEditMode, RequireComponent(typeof(Camera))]
     public class Bokeh : MonoBehaviour
     {

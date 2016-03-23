@@ -1,6 +1,8 @@
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
+Assets/Test/
+Test.meta
 
 ExportedObj/
 *.csproj
@@ -22,8 +24,6 @@ desktop.ini
 *.orig
 *.orig.meta
 
-Test.unity
-Test.unity.meta
 DOTweenSettings.asset
 DOTweenSettings.asset.meta
 UnityConnectSettings.asset

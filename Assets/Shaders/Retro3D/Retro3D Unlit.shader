@@ -1,4 +1,4 @@
-﻿Shader "Retro3D/Unlit"
+Shader "Custom/Retro3D Unlit"
 {
     Properties
     {

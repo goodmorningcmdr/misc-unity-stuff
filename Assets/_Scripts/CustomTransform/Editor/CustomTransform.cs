@@ -7,7 +7,7 @@ using UnityEditor.AnimatedValues; //used for "Special Operations" fade group
 public class CustomTransform : Editor
 {
     private Transform _transform;
-	float buttonWidth = 150;
+	float buttonWidth = 100;
 
     public override void OnInspectorGUI() {
         //We need this for all OnInspectorGUI sub methods
@@ -23,11 +23,22 @@ public class CustomTransform : Editor
     private void StandardTransformInspector() {
 		EditorGUILayout.BeginHorizontal();
 		GUILayout.FlexibleSpace();
+		
 		if (GUILayout.Button("Reset All", GUILayout.Width(buttonWidth)))
 		{
 			_transform.localPosition = Vector3.zero;
 			_transform.localRotation = Quaternion.identity;
 			_transform.localScale = Vector3.one;
+		}
+
+		if (_transform.childCount >0 && GUILayout.Button("Reset Children", GUILayout.Width(buttonWidth)))
+		{
+			foreach(Transform child in _transform.GetComponentsInChildren<Transform>())
+			{
+				child.localPosition = Vector3.zero;
+				child.localRotation = Quaternion.identity;
+				child.localScale = Vector3.one;
+			}
 		}
 		GUILayout.FlexibleSpace();
 		EditorGUILayout.EndHorizontal();
@@ -51,6 +62,7 @@ public class CustomTransform : Editor
 
 		EditorGUILayout.BeginHorizontal();
 		GUILayout.FlexibleSpace();
+		
 		if (GUILayout.Button("Reset Position", GUILayout.Width(buttonWidth)))
 		{
 			_transform.localPosition = Vector3.zero;
@@ -64,6 +76,7 @@ public class CustomTransform : Editor
 		EditorGUILayout.EndHorizontal();
 		EditorGUILayout.BeginHorizontal();
 		GUILayout.FlexibleSpace();
+		
 		if (GUILayout.Button("Reset Scale", GUILayout.Width(buttonWidth)))
 		{
 			_transform.localScale = Vector3.one;

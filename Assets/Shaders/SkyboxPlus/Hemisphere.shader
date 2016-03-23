@@ -1,4 +1,4 @@
-Shader "SkyboxPlus/Hemisphere"
+Shader "Skybox/Skybox Plus/Hemisphere"
 {
     Properties
     {

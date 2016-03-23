@@ -26,7 +26,7 @@ namespace Kino
 {
     [ExecuteInEditMode]
     [RequireComponent(typeof(Camera))]
-    [AddComponentMenu("Kino Image Effects/Ramp")]
+    [AddComponentMenu("Image Effects/Kino/Gradient Ramp")]
     public class Ramp : MonoBehaviour
     {
         #region Public Properties

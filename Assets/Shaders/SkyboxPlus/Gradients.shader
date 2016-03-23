@@ -1,4 +1,4 @@
-Shader "SkyboxPlus/Gradients"
+Shader "Skybox/Skybox Plus/Gradients"
 {
     Properties
     {

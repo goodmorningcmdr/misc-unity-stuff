@@ -13,7 +13,7 @@ TrueTypeFontImporter:
   fallbackFontReferences:
   - {fileID: 12800000, guid: 31f6953ffaa8cd541bb855a9b6a40963, type: 3}
   customCharacters: 
-  fontRenderingMode: 0
+  fontRenderingMode: 1
   ascentCalculationMode: 1
   userData: 
   assetBundleName: 

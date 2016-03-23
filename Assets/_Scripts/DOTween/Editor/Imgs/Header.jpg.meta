@@ -30,7 +30,7 @@ TextureImporter:
   maxTextureSize: 512
   textureSettings:
     filterMode: 2
-    aniso: 9
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0

@@ -26,7 +26,7 @@ namespace Kino
 {
     [ExecuteInEditMode]
     [RequireComponent(typeof(Camera))]
-    [AddComponentMenu("Kino Image Effects/Analog Glitch")]
+    [AddComponentMenu("Image Effects/Kino/Analog Glitch")]
     public class AnalogGlitch : MonoBehaviour
     {
         #region Public Properties
