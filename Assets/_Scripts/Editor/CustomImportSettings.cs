@@ -26,6 +26,7 @@ class CustomImportSettings : AssetPostprocessor {
 			importer.anisoLevel = 16;
 			importer.isReadable = false;
 			importer.filterMode = FilterMode.Bilinear;
+			importer.mipmapEnabled = false;
 			importer.maxTextureSize = 2048;
 			if (!importer.normalmap) 
 			{
@@ -35,12 +36,12 @@ class CustomImportSettings : AssetPostprocessor {
 		}
 	}
 
-	void OnPreprocessModel() {
-		ModelImporter importer = assetImporter as ModelImporter;
-		if (importer.defaultClipAnimations.Length == 0)
-		{
-			importer.importAnimation = false; 
-			importer.animationType = ModelImporterAnimationType.None;
-		}
-	}
+	//void OnPreprocessModel() {
+	//	ModelImporter importer = assetImporter as ModelImporter;
+	//	if (!assetPath.StartsWith("Assets/Models/Characters"))
+	//	{
+	//		importer.importAnimation = false; 
+	//		importer.animationType = ModelImporterAnimationType.None;
+	//	}
+	//}
 }
