@@ -63,7 +63,7 @@ public class FilterComponents : EditorWindow {
 
 			scrollPos = EditorGUILayout.BeginScrollView(scrollPos);
 			EditorGUILayout.Space();
-			List<Component> compList = ExtensionMethods.FindAllObjectsOfType<Component>().OrderBy(go => go.name).ToList();
+			List<Component> compList = ExtensionMethods.FindAllObjectsOfType<Component>().OrderBy(go => go.GetType().ToString()).ToList();
 			bool found = false;
 
 			foreach (Component t in compList)
@@ -87,11 +87,11 @@ public class FilterComponents : EditorWindow {
 				EditorGUILayout.BeginHorizontal();
 				GUILayout.FlexibleSpace();
 				
-				if (GUILayout.Button("Do Thing", GUILayout.Width(200))) 
-				{
-					DoThing.Invoke();
-					DoThing = null;
-				}
+				//if (GUILayout.Button("Do Thing", GUILayout.Width(200))) 
+				//{
+				//	DoThing.Invoke();
+				//	DoThing = null;
+				//}
 
 				GUILayout.FlexibleSpace();
 				EditorGUILayout.EndHorizontal();
