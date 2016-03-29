@@ -11,9 +11,10 @@ public class Options {
 		}
 		return instance;
 	}
-	protected Options() {
-		 //Debug.Log("Fart");
-     }
+	
+	protected Options()	{
+		//Debug.Log("Fart ");
+	}
 
 	[Header("Camera/Mouse Settings")]
 	[Range(0.1f, 20)]

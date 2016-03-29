@@ -25,7 +25,7 @@ public class MouseLook : MonoBehaviour {
 	
 	Transform camTransform;	
 	
-	void Awake() {
+	void Start() {
 		Options = Options.getInstance();
 		playerTransform = transform;		
 		originalPlayerRotation = playerTransform.localRotation;

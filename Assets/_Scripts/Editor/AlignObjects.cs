@@ -29,7 +29,7 @@ public class AlignObjects : EditorWindow {
 
 		if (Selection.activeTransform == null)
 		{
-			EditorGUILayout.HelpBox("Select the transform you want to align others to", MessageType.Info);
+			EditorGUILayout.HelpBox("Select the transform you want to align other transforms to", MessageType.Info);
 			return;
 		}
 		else if (Selection.transforms.Length <= 1)
@@ -52,21 +52,26 @@ public class AlignObjects : EditorWindow {
 		EditorGUILayout.BeginHorizontal();
 		GUILayout.Label("  Align these transforms:", EditorStyles.boldLabel);
 		GUILayout.FlexibleSpace();
-		GUILayout.Label(alignTo);
+		GUILayout.Label(alignTo + "  ");
 		EditorGUILayout.EndHorizontal();
+		GUILayout.Space(10);
 		alignTo = "";
 		EditorGUILayout.BeginHorizontal();
-		GUILayout.Label("  With:", EditorStyles.boldLabel);
+		GUILayout.Label("  to this transform:", EditorStyles.boldLabel);
 		GUILayout.FlexibleSpace();
-		GUILayout.Label(selected); 
+		GUILayout.Label(selected + "  ");
 		EditorGUILayout.EndHorizontal();
 		EditorGUILayout.Space(); EditorGUILayout.Space();
 		GUILayout.Label("  On: ", EditorStyles.boldLabel);
 		alignToX = EditorGUILayout.Toggle("  X axis", alignToX);
 		alignToY = EditorGUILayout.Toggle("  Y axis", alignToY);
 		alignToZ = EditorGUILayout.Toggle("  Z axis", alignToZ);
-		EditorGUILayout.Space();
-		if (GUILayout.Button("Align")) Align();
+		GUILayout.Space(20);
+		EditorGUILayout.BeginHorizontal();
+		GUILayout.FlexibleSpace();
+		if (GUILayout.Button("Align", GUILayout.Width(200), GUILayout.Height(25))) Align();
+		GUILayout.FlexibleSpace();
+		EditorGUILayout.EndHorizontal();
 	}
 	Vector3 newPosition;
 	Vector3 alignementPosition;

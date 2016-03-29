@@ -12,11 +12,11 @@ public class ItemView : MonoBehaviour {
 	Options Options;
 
 	void Awake() {
-		Options = Options.getInstance();
 		holding = false;
 	}
 
 	void Start() {
+		Options = Options.getInstance();
 		oldPos = transform.position;
 		oldRot = transform.eulerAngles;
 	}

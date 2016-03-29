@@ -15,7 +15,7 @@ public class HeadBob : MonoBehaviour {
 	FPSController player;
 	Transform camTransform;
 
-	void Awake() {
+	void Start() {
 		Options = Options.getInstance();
 		walkSpeed = bobbingSpeed;
 		runSpeed = walkSpeed + 2;

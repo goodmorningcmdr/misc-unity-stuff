@@ -7,7 +7,7 @@ public class TakeScreenshot : MonoBehaviour {
 	
 	void SaveScreenshot() {
 		string dest = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
-		dest += "/" + Application.productName + "/Screenshots/";
+		dest += "/" + Application.productName;
 
 		try
 		{
@@ -33,6 +33,8 @@ public class TakeScreenshot : MonoBehaviour {
 		}
 
 		startNumber = number + 1;
+
+		Debug.Log("Saved screenshot: " + fileName + name + ".png");
 		
 		Application.CaptureScreenshot(fileName + name + ".png", 1);
 	}

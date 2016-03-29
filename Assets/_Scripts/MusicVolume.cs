@@ -6,7 +6,7 @@ public class MusicVolume : MonoBehaviour {
 	[Range(0, 1)]
 	public float desiredVolume = 1;
 
-	void OnEnable() {
+	void Start() {
 		Options = Options.getInstance();
 		_audio = GetComponent<AudioSource>();
 		_audio.ignoreListenerVolume = true;
