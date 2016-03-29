@@ -1719,7 +1719,7 @@ Objects:  {
             Property: "LastSaved|DateTime_GMT", "DateTime", "", ""
         }
     }
-    Material: "Material::_auto_1", "" {
+    Material: "Material::revolver_handle", "" {
         Version: 102
         ShadingModel: "phong"
         MultiLayer: 0
@@ -1750,7 +1750,7 @@ Objects:  {
             Property: "Reflectivity", "double", "",0
         }
     }
-    Material: "Material::_auto_2", "" {
+    Material: "Material::revolver_cylinder", "" {
         Version: 102
         ShadingModel: "phong"
         MultiLayer: 0
@@ -1781,7 +1781,7 @@ Objects:  {
             Property: "Reflectivity", "double", "",0
         }
     }
-    Material: "Material::_auto_", "" {
+    Material: "Material::revolver_frame", "" {
         Version: 102
         ShadingModel: "phong"
         MultiLayer: 0
@@ -1832,9 +1832,9 @@ Objects:  {
 Connections:  {
     Connect: "OO", "Model::Model", "Model::Scene"
     Connect: "OO", "Model::Mesh1", "Model::Model"
-    Connect: "OO", "Material::_auto_", "Model::Mesh1"
-    Connect: "OO", "Material::_auto_1", "Model::Mesh1"
-    Connect: "OO", "Material::_auto_2", "Model::Mesh1"
+    Connect: "OO", "Material::revolver_frame", "Model::Mesh1"
+    Connect: "OO", "Material::revolver_handle", "Model::Mesh1"
+    Connect: "OO", "Material::revolver_cylinder", "Model::Mesh1"
 }
 ;Takes and animation section
 ;----------------------------------------------------

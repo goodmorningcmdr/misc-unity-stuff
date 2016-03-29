@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 3e42fa06c3f95a146ba704bcb31dc497
+labels:
+- Effect
 timeCreated: 1458432027
 licenseType: Pro
 TextureImporter:

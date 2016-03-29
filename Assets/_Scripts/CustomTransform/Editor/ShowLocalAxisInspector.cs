@@ -9,7 +9,7 @@ public class ShowLocalAxisInspector : Editor {
         ShowLocalAxis showRotated = (ShowLocalAxis)target;
         if (showRotated.destroyWhenSafe && Event.current.type == EventType.Repaint)
         {
-            DestroyImmediate(showRotated);
+            DestroyImmediate(showRotated, true);
             return;
         }
 		serializedObject.ApplyModifiedProperties();

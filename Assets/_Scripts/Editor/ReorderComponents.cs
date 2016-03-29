@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEditor;
 using System.Reflection;
 using System.Collections.Generic;
- 
+
 [InitializeOnLoad]
 [ExecuteInEditMode] 
 public class ReorderComponents : EditorWindow {
@@ -16,19 +16,23 @@ public class ReorderComponents : EditorWindow {
    
     [MenuItem("Tools/Reorder Components")]
     private static void ShowWindow () {
-		ReorderComponents windowHndle = (ReorderComponents)EditorWindow.GetWindow(typeof(ReorderComponents));
-		windowHndle.titleContent.text = " Reorder";
-		windowHndle.titleContent.image = Resources.Load("reordertab") as Texture2D;
-        windowHndle.autoRepaintOnSceneChange = true;
+		ReorderComponents window = (ReorderComponents)EditorWindow.GetWindow(typeof(ReorderComponents), true, "Reorder Components");
+		window.autoRepaintOnSceneChange = true;
     }
    
     void OnInspectorUpdate() {
         Repaint();
     }
+
+	float styleHeight = 32;
    
-    void OnGUI () { 
+    void OnGUI () {
         Transform currentTransform = Selection.activeTransform;
- 
+		if (currentTransform == null)
+		{
+			EditorGUILayout.Space();
+			EditorGUILayout.HelpBox("Select a game object", MessageType.Info);
+		}
         if (Selection.GetFiltered(typeof(Transform), SelectionMode.Unfiltered).Length > 0)
         {
             currentTransform = (Transform) Selection.GetFiltered(typeof(Transform), SelectionMode.Unfiltered)[0];
@@ -38,10 +42,8 @@ public class ReorderComponents : EditorWindow {
 		{
 			EditorWindow windowHndle = EditorWindow.GetWindow(typeof(ReorderComponents));
 
-			//EditorGUILayout.Space(); EditorGUILayout.Space();
 			Component[] comps = currentTransform.GetComponents<Component>();
 			int marginSize = 8;
-			float styleHeight = 32;
 			float styleWidth = Screen.width - windowHndle.position.size.x;
 
 			Texture2D buttonActiveBackground = new Texture2D(1, 1);
@@ -49,20 +51,20 @@ public class ReorderComponents : EditorWindow {
 			buttonActiveBackground.Apply();
            
 			GUIStyle buttonStyle = new GUIStyle(GUI.skin.button);
-			buttonStyle.alignment = TextAnchor.MiddleLeft;
+			buttonStyle.alignment = TextAnchor.MiddleCenter;
 			buttonStyle.fixedHeight = styleHeight;
 			buttonStyle.fixedWidth = styleWidth;
 			buttonStyle.margin = new RectOffset(marginSize * 2, marginSize * 2, marginSize, marginSize);
-           
+			
 			GUIStyle buttonDisabledStyle = new GUIStyle(GUI.skin.button);
-			buttonDisabledStyle.alignment = TextAnchor.MiddleLeft;
+			buttonDisabledStyle.alignment = TextAnchor.MiddleCenter;
 			buttonDisabledStyle.fixedHeight = styleHeight;
 			buttonDisabledStyle.fixedWidth = styleWidth;
 			buttonDisabledStyle.margin = new RectOffset(marginSize * 2, marginSize * 2, marginSize, marginSize);
 			buttonDisabledStyle.normal.textColor = Color.gray;
            
 			GUIStyle buttonActiveStyle = new GUIStyle();
-			buttonActiveStyle.alignment = TextAnchor.MiddleLeft;
+			buttonActiveStyle.alignment = TextAnchor.MiddleCenter;
 			buttonActiveStyle.fixedHeight = styleHeight;
 			buttonActiveStyle.fixedWidth = styleWidth;
 			buttonDisabledStyle.margin = new RectOffset(marginSize * 2, marginSize * 2, marginSize, marginSize);
@@ -71,7 +73,7 @@ public class ReorderComponents : EditorWindow {
 
             // Check if mouse button gets pressed down and see which button is below mouse
             if (!mouseDown && Event.current.type == EventType.MouseDown) {
-                activeButton = Mathf.FloorToInt(Event.current.mousePosition.y / (marginSize + styleHeight));
+				activeButton = Mathf.FloorToInt((Event.current.mousePosition.y) / ((marginSize + styleHeight)));
  
                 if (activeButton < comps.Length)
                 {
@@ -134,7 +136,7 @@ public class ReorderComponents : EditorWindow {
  
                 SerializedProperty prop = serialized_object.GetIterator();
  
-                int attempts = 5;
+                int attempts = 0;
  
                 string property_name = "";
 
@@ -195,14 +197,17 @@ public class ReorderComponents : EditorWindow {
                 {
                     componentName += "\n" + property_name.Substring(0, Mathf.Min(64, property_name.Length));
                 }
- 
-                GUILayout.Button(componentName.Replace("UnityEngine.", ""), style);
+
+				//string compName = componentName.Replace("UnityEngine.", ""); compName = compName.Replace("UnityStandardAssets.","");
+				string compName = comps[j].GetType().Name;
+
+				GUILayout.Button(compName.SeperateCamelCase(), style);
             }
            
             // If mouse button is down, draw the extra button
             if (mouseDown) {
                 Rect buttonPosition = new Rect(Event.current.mousePosition.x - Screen.width/2 - (styleWidth + marginSize), Event.current.mousePosition.y - 12.5f, Screen.width - 10, 25);
-                GUI.Button(buttonPosition, comps[activeButton].GetType().ToString(), buttonStyle);
+                GUI.Button(buttonPosition, comps[activeButton].GetType().Name.SeperateCamelCase(), buttonStyle);
             }
            
             // Get index for the new temp button

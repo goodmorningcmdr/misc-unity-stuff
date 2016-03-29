@@ -30,19 +30,17 @@ FBXHeaderExtension:  {
 			Comment: ""
 		}
 		Properties70:  {
-			P: "DocumentUrl", "KString", "Url", "", "C:\Users\Peetreek\Documents\maya\projects\farmergnome01\scenes\finalExport\shotgunFBX.fbx"
-			P: "SrcDocumentUrl", "KString", "Url", "", "C:\Users\Peetreek\Documents\maya\projects\farmergnome01\scenes\finalExport\shotgunFBX.fbx"
+			P: "DocumentUrl", "KString", "Url", "", "shotgun.fbx"
+			P: "SrcDocumentUrl", "KString", "Url", "", "shotgun.fbx"
 			P: "Original", "Compound", "", ""
 			P: "Original|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "Original|ApplicationName", "KString", "", "", "Maya"
 			P: "Original|ApplicationVersion", "KString", "", "", "2015"
-			P: "Original|DateTime_GMT", "DateTime", "", "", "14/12/2015 12:19:57.566"
-			P: "Original|FileName", "KString", "", "", "C:/Users/Peetreek/Documents/maya/projects/farmergnome01/scenes/finalExport/shotgunFBX.fbx"
+			P: "Original|FileName", "KString", "", "", "shotgun.fbx"
 			P: "LastSaved", "Compound", "", ""
 			P: "LastSaved|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "LastSaved|ApplicationName", "KString", "", "", "Maya"
 			P: "LastSaved|ApplicationVersion", "KString", "", "", "2015"
-			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "14/12/2015 12:19:57.566"
 		}
 	}
 }
@@ -420,11 +418,11 @@ Objects:  {
 	Video: 1465744736, "Video::file1", "Clip" {
 		Type: "Clip"
 		Properties70:  {
-			P: "Path", "KString", "XRefUrl", "", "C:/Users/Peetreek/Documents/maya/projects/farmergnome01/sourceimages/shotgunEtc_Diff.png"
+			P: "Path", "KString", "XRefUrl", "", "shotgun.png"
 		}
 		UseMipMap: 0
-		Filename: "C:/Users/Peetreek/Documents/maya/projects/farmergnome01/sourceimages/shotgunEtc_Diff.png"
-		RelativeFilename: "..\..\sourceimages\shotgunEtc_Diff.png"
+		Filename: "shotgun.png"
+		RelativeFilename: "shotgun.png"
 	}
 	Texture: 228006016, "Texture::file1", "" {
 		Type: "TextureVideoClip"
@@ -436,8 +434,8 @@ Objects:  {
 			P: "UseMaterial", "bool", "", "",1
 		}
 		Media: "Video::file1"
-		FileName: "C:/Users/Peetreek/Documents/maya/projects/farmergnome01/sourceimages/shotgunEtc_Diff.png"
-		RelativeFilename: "..\..\sourceimages\shotgunEtc_Diff.png"
+		FileName: "shotgun.png"
+		RelativeFilename: "shotgun.png"
 		ModelUVTranslation: 0,0
 		ModelUVScaling: 1,1
 		Texture_Alpha_Source: "None"

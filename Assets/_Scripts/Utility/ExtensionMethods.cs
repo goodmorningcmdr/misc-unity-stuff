@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 public static class ExtensionMethods {
     public static Transform GetGrandChild(this Transform trans, string childName) {
@@ -86,5 +87,13 @@ public static class ExtensionMethods {
 			if (result != null)	results.Add(result);
 		}
 		return results.ToArray();
+	}
+
+	public static string SeperateCamelCase(this string value) {
+		return Regex.Replace(value, "((?<=[a-z])[A-Z]|(?<!^)[A-Z](?=[a-z]))", " $1"); 
+	}
+
+	public static Quaternion insideUnitSphere(this Quaternion value, float range) {
+		return Quaternion.Euler(Random.insideUnitSphere * range);
 	}
 }

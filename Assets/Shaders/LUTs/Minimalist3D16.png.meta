@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 3cf05ef7bab8fd84a8b96809bb6d5a69
+labels:
+- Effect
 timeCreated: 1458720721
 licenseType: Pro
 TextureImporter:
@@ -32,7 +34,7 @@ TextureImporter:
     filterMode: -1
     aniso: 0
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 1
   lightmap: 0
   rGBM: 0
