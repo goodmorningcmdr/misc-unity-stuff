@@ -7,7 +7,7 @@ public class AutoRotate : MonoBehaviour {
 	public Space space = Space.Self;
 	public bool randomAxis = false;
 
-	void OnEnable() {
+	void Start() {
 		if (randomAxis) axis = Random.onUnitSphere;
 	}
 

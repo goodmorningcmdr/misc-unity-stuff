@@ -6,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[AddComponentMenu("Playdead/VelocityBufferTag")]
 public class VelocityBufferTag : MonoBehaviour
 {
     public static List<VelocityBufferTag> activeObjects = new List<VelocityBufferTag>(128);

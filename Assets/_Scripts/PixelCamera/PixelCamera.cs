@@ -60,7 +60,7 @@ public class PixelCamera : MonoBehaviour {
 		if ( Time.frameCount % 10 != 0 ) {
 			return;
 		}
-		Calculate();
+		//Calculate();
 	}	
 	
 	//-----------------------------------------------------------------------------

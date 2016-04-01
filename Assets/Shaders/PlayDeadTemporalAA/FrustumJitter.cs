@@ -7,7 +7,7 @@ using UnityEngine;
 
 [ExecuteInEditMode]
 [RequireComponent(typeof(Camera))]
-[AddComponentMenu("Playdead/FrustumJitter")]
+[RequireComponent(typeof(VelocityBuffer))]
 public class FrustumJitter : MonoBehaviour
 {
     #region Point distributions

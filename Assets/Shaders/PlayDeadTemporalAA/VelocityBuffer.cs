@@ -7,7 +7,6 @@ using UnityEngine;
 
 [ExecuteInEditMode]
 [RequireComponent(typeof(Camera))]
-[AddComponentMenu("Playdead/VelocityBuffer")]
 public class VelocityBuffer : EffectBase
 {
 #if UNITY_PS4

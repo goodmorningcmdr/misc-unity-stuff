@@ -26,7 +26,7 @@ class CustomImportSettings : AssetPostprocessor {
 		{		
 			importer.anisoLevel = 16;
 			importer.isReadable = false;
-			importer.filterMode = FilterMode.Bilinear;
+			if (importer.filterMode != FilterMode.Point) importer.filterMode = FilterMode.Bilinear;
 			importer.maxTextureSize = 2048;
 
 			if (!importer.normalmap) 

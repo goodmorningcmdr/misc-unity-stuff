@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="sprites.png">
+	<!--
+	Created with ShoeBox
+	http://renderhjs.net/shoebox/
+	-->
+	<SubTexture name="angry_000.png"	x="19"	y="95"	width="18"	height="18" frameX="-0" frameY="-0" frameWidth="18" frameHeight="18"/>
+	<SubTexture name="annoyed_000.png"	x="19"	y="76"	width="18"	height="18" frameX="-0" frameY="-0" frameWidth="18" frameHeight="18"/>
+	<SubTexture name="confused_000.png"	x="19"	y="57"	width="18"	height="18" frameX="-0" frameY="-0" frameWidth="18" frameHeight="18"/>
+	<SubTexture name="cool_000.png"	x="19"	y="38"	width="18"	height="18" frameX="-0" frameY="-0" frameWidth="18" frameHeight="18"/>
+	<SubTexture name="cry_000.png"	x="19"	y="19"	width="18"	height="18" frameX="-0" frameY="-0" frameWidth="18" frameHeight="18"/>
+	<SubTexture name="cute_000.png"	x="19"	y="0"	width="18"	height="18" frameX="-0" frameY="-0" frameWidth="18" frameHeight="18"/>
+	<SubTexture name="disbelieve_000.png"	x="0"	y="95"	width="18"	height="18" frameX="-0" frameY="-0" frameWidth="18" frameHeight="18"/>
+	<SubTexture name="evil_000.png"	x="0"	y="76"	width="18"	height="18" frameX="-0" frameY="-0" frameWidth="18" frameHeight="18"/>
+	<SubTexture name="happy_000.png"	x="0"	y="57"	width="18"	height="18" frameX="-0" frameY="-0" frameWidth="18" frameHeight="18"/>
+	<SubTexture name="laugh_000.png"	x="0"	y="38"	width="18"	height="18" frameX="-0" frameY="-0" frameWidth="18" frameHeight="18"/>
+	<SubTexture name="mad_000.png"	x="0"	y="19"	width="18"	height="18" frameX="-0" frameY="-0" frameWidth="18" frameHeight="18"/>
+	<SubTexture name="misfaith_000.png"	x="0"	y="0"	width="18"	height="18" frameX="-0" frameY="-0" frameWidth="18" frameHeight="18"/>
+	<SubTexture name="nerd_000.png"	x="38"	y="0"	width="18"	height="18" frameX="-0" frameY="-0" frameWidth="18" frameHeight="18"/>
+	<SubTexture name="pleased_000.png"	x="57"	y="95"	width="18"	height="18" frameX="-0" frameY="-0" frameWidth="18" frameHeight="18"/>
+	<SubTexture name="sad_000.png"	x="57"	y="76"	width="18"	height="18" frameX="-0" frameY="-0" frameWidth="18" frameHeight="18"/>
+	<SubTexture name="shocked_000.png"	x="57"	y="57"	width="18"	height="18" frameX="-0" frameY="-0" frameWidth="18" frameHeight="18"/>
+	<SubTexture name="shy_000.png"	x="57"	y="38"	width="18"	height="18" frameX="-0" frameY="-0" frameWidth="18" frameHeight="18"/>
+	<SubTexture name="sick_000.png"	x="57"	y="19"	width="18"	height="18" frameX="-0" frameY="-0" frameWidth="18" frameHeight="18"/>
+	<SubTexture name="smile_000.png"	x="57"	y="0"	width="18"	height="18" frameX="-0" frameY="-0" frameWidth="18" frameHeight="18"/>
+	<SubTexture name="surprised_000.png"	x="38"	y="95"	width="18"	height="18" frameX="-0" frameY="-0" frameWidth="18" frameHeight="18"/>
+	<SubTexture name="tired_000.png"	x="38"	y="76"	width="18"	height="18" frameX="-0" frameY="-0" frameWidth="18" frameHeight="18"/>
+	<SubTexture name="tongue_000.png"	x="38"	y="57"	width="18"	height="18" frameX="-0" frameY="-0" frameWidth="18" frameHeight="18"/>
+	<SubTexture name="tossy_000.png"	x="38"	y="38"	width="18"	height="18" frameX="-0" frameY="-0" frameWidth="18" frameHeight="18"/>
+	<SubTexture name="wink_000.png"	x="38"	y="19"	width="18"	height="18" frameX="-0" frameY="-0" frameWidth="18" frameHeight="18"/>
+	<SubTexture name="xd_000.png"	x="76"	y="0"	width="18"	height="18" frameX="-0" frameY="-0" frameWidth="18" frameHeight="18"/>
+</TextureAtlas>

@@ -8,7 +8,8 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 [RequireComponent(typeof(FrustumJitter))]
 [RequireComponent(typeof(VelocityBuffer))]
-[AddComponentMenu("Playdead/TemporalReprojection")]
+[DisallowMultipleComponent]
+[AddComponentMenu("Image Effects/Playdead/TemporalReprojection")]
 public class TemporalReprojection : EffectBase
 {
     private static RenderBuffer[] mrt = new RenderBuffer[2];
