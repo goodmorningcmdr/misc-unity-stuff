@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections;
 
 public class HeadBob : MonoBehaviour {
-	Options Options;
 	public float bobbingSpeed = 10f;
 	float runSpeed, walkSpeed;
 	public float bobbingAmount = 0.05f;
@@ -16,7 +15,6 @@ public class HeadBob : MonoBehaviour {
 	Transform camTransform;
 
 	void Start() {
-		Options = Options.getInstance();
 		walkSpeed = bobbingSpeed;
 		runSpeed = walkSpeed + 2;
 		playerController = transform.GetComponent<CharacterController>();
@@ -47,7 +45,7 @@ public class HeadBob : MonoBehaviour {
 		bobbingSpeed = player.isRunning ? runSpeed : walkSpeed;
 		bobbingAmount = player.isRunning ? 0.08f : 0.06f;
 
-		if (!Options.viewBob || playerController.velocity.sqrMagnitude <= 0f)
+		if (!Purse.instance.options.viewBob || playerController.velocity.sqrMagnitude <= 0f)
 		{
 			bobbingAmount = bobbingSpeed = 0;
 		}

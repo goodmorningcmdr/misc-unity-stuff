@@ -1,13 +1,14 @@
 using System;
 using UnityEngine;
 
+[DisallowMultipleComponent]
 public class FramesCounter : MonoBehaviour {
-    const float fpsMeasurePeriod = 0.5f;
+	const float fpsMeasurePeriod = 0.5f;
     private int m_FpsAccumulator = 0;
     private float m_FpsNextPeriod = 0;
     private int m_CurrentFps;
     const string display = "{0}";
-	bool on;
+	public bool on;
 
     void Start() {
 		m_FpsNextPeriod = Time.realtimeSinceStartup + fpsMeasurePeriod;

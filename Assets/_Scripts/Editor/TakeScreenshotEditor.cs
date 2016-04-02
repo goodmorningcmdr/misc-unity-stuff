@@ -6,7 +6,7 @@ using System;
 public class TakeScreenshotEditor : Editor {
 	public static int startNumber = 1;
 	
-    [MenuItem ("Tools/Save Screenshot")]
+    [MenuItem ("Tools/Save Screenshot", false, 1)]
     static void TakeScreenshot() {
 		System.Reflection.Assembly assembly = typeof(UnityEditor.EditorWindow).Assembly;
 		Type type = assembly.GetType("UnityEditor.GameView");
@@ -25,7 +25,7 @@ public class TakeScreenshotEditor : Editor {
 		Debug.Log("Saved screenshot " + path + fileName + ".png");
     }
 
-	[MenuItem("Tools/Other/Save High Resolution Screenshot")]
+	[MenuItem("Tools/Other/Save High Resolution Screenshot", false, 1)]
 	static void TakeScreenshotHigh() {
 		System.Reflection.Assembly assembly = typeof(UnityEditor.EditorWindow).Assembly;
 		Type type = assembly.GetType("UnityEditor.GameView");

@@ -2,20 +2,6 @@ using UnityEngine;
 
 [System.Serializable]
 public class Options {
-	private static Options instance;
-
-	public static Options getInstance() {
-		if (instance == null)
-		{
-			instance = new Options();
-		}
-		return instance;
-	}
-	
-	protected Options()	{
-		//Debug.Log("Fart ");
-	}
-
 	[Header("Camera/Mouse Settings")]
 	[Range(0.1f, 20)]
 	public float lookSensitivity = 4;
@@ -59,3 +45,4 @@ public class Options {
 	void Load(){}
 	void Save(){}
 }
+

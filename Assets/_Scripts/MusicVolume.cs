@@ -1,19 +1,17 @@
 using UnityEngine;
 
 public class MusicVolume : MonoBehaviour {
-	Options Options;
 	AudioSource _audio;
 	[Range(0, 1)]
 	public float desiredVolume = 1;
 
 	void Start() {
-		Options = Options.getInstance();
 		_audio = GetComponent<AudioSource>();
 		_audio.ignoreListenerVolume = true;
-		_audio.volume = desiredVolume * Options.musicVolume;
+		_audio.volume = desiredVolume * Purse.instance.options.musicVolume;
 	}
 
 	void Update() {
-		_audio.volume = desiredVolume * Options.musicVolume;
+		_audio.volume = desiredVolume * Purse.instance.options.musicVolume;
 	}
 }

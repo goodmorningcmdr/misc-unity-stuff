@@ -13,14 +13,13 @@ public class GenerateCubemaps : MonoBehaviour {
 	    
 		GameObject[] gos;
 		
-		if (Selection.gameObjects.Length > 0)
+		if (select)
 		{
 			gos = Selection.gameObjects;
 		}
 		else 
 		{
 			gos = null;
-			EditorGUILayout.HelpBox("Nothing is selected", MessageType.Warning);
 			return;
 		}
 		

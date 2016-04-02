@@ -34,13 +34,12 @@ public class TakeScreenshot : MonoBehaviour {
 
 		startNumber = number + 1;
 
-		Debug.Log("Saved screenshot: " + fileName + name + ".png");
-		
 		Application.CaptureScreenshot(fileName + name + ".png", 1);
+
+		Debug.Log("Saved screenshot: " + fileName + name + ".png");
 	}
 
-	void OnGUI() {
-		Event e = Event.current;
-        if (e.isKey && e.keyCode.ToString() == "SysReq") SaveScreenshot();	
+	void Update() {
+        if (Input.GetKeyDown(KeyCode.Print)) SaveScreenshot();	
 	}
 }

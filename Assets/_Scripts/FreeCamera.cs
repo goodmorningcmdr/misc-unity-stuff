@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class FreeCamera : MonoBehaviour {
 	public bool enabledOnPause = true, editorOnly = true;

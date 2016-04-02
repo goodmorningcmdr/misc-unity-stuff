@@ -111,7 +111,7 @@ public static class ExtensionMethods {
 		return list;
 	}
 
-	public static bool CheckComponentValid(this bool value, string componentName) {
+	public static bool IsComponentValid(this bool value, string componentName) {
 		string pattern = @"[^a-zA-Z0-9]";
 		Regex rgx = new Regex(pattern);
 		componentName = rgx.Replace(componentName, "");

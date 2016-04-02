@@ -14,7 +14,7 @@ public class ReorderComponents : EditorWindow {
     bool mouseDown;
     int[] newIndexes;
    
-    [MenuItem("Tools/Reorder Components")]
+    [MenuItem("Tools/Reorder Components", false, 0)]
     private static void ShowWindow () {
 		ReorderComponents window = (ReorderComponents)EditorWindow.GetWindow(typeof(ReorderComponents), true, "Reorder Components");
 		window.autoRepaintOnSceneChange = true;

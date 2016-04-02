@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ItemInteraction : MonoBehaviour {
-	Options Options;
 	Camera cam;
 	RaycastHit hit;
 	float rayDist = 1;
@@ -18,9 +17,8 @@ public class ItemInteraction : MonoBehaviour {
 	Item currentItem;
 
 	void Start () {
-		Options = Options.getInstance();
 		cam = Camera.main;
-		highlightTexture = new Texture2D(1, 1);
+		highlightTexture = new Texture2D(1, 1, TextureFormat.ARGB32, false);
 		highlightTexture.SetPixel(1, 1, Color.white);
 		highlightTexture.Apply();
 
@@ -47,7 +45,7 @@ public class ItemInteraction : MonoBehaviour {
 		{
 			if (hit.transform.tag == "Interactable")
 			{			
-				if (Options.hints)
+				if (Purse.instance.options.hints)
 				{
 					crosshair.enabled = false;
 					interactCrosshair.enabled = true;
@@ -116,7 +114,7 @@ public class ItemInteraction : MonoBehaviour {
 	void DisableCrosshair() {
 		currentItem = null;
 
-		crosshair.enabled = Options.crosshair ? true : false;
+		crosshair.enabled = Purse.instance.options.crosshair ? true : false;
 
 		if (interactedItem) RemoveInteractionHint(interactedItem);
 

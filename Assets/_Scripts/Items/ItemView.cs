@@ -9,14 +9,12 @@ public class ItemView : MonoBehaviour {
 	bool returning;
 	public float distanceToCamera = 0.4f;
 	public bool rotateHorizontal = true, rotateVertical = false;
-	Options Options;
 
 	void Awake() {
 		holding = false;
 	}
 
 	void Start() {
-		Options = Options.getInstance();
 		oldPos = transform.position;
 		oldRot = transform.eulerAngles;
 	}
@@ -36,7 +34,7 @@ public class ItemView : MonoBehaviour {
 
 			if (rotateVertical)
 			{
-				if (!Options.invertYAxis)
+				if (!Purse.instance.options.invertYAxis)
 					transform.Rotate(Vector3.left * ly * speed * Time.deltaTime, Space.Self);
 				else
 					transform.Rotate(Vector3.right * ly * speed * Time.deltaTime, Space.Self);

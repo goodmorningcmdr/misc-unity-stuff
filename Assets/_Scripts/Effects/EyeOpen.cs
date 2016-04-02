@@ -10,7 +10,7 @@ public class EyeOpen : MonoBehaviour {
 	public bool killOnPause = false;
 
 	void Awake() {
-		face = new Texture2D(1, 1);
+		face = new Texture2D(1, 1, TextureFormat.ARGB32, false);
 		face.SetPixel(1, 1, Color.black);
 		face.Apply();
 	}

@@ -4,8 +4,8 @@ TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
-    mipMapMode: 0
-    enableMipMap: 0
+    mipMapMode: 1
+    enableMipMap: 1
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -24,12 +24,12 @@ TextureImporter:
   cubemapConvolutionSteps: 8
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -5
   maxTextureSize: 32
   textureSettings:
     filterMode: 0
-    aniso: 9
-    mipBias: -1
+    aniso: 0
+    mipBias: -0.5
     wrapMode: 0
   nPOTScale: 1
   lightmap: 0
@@ -50,6 +50,6 @@ TextureImporter:
     sprites: []
     outline: []
   spritePackingTag: 
-  userData: 
+  userData: changed
   assetBundleName: 
   assetBundleVariant: 

@@ -2,20 +2,18 @@ using UnityEngine;
 using System.Collections;
 
 public class CameraZoom : MonoBehaviour {
-	Options Options;
 	public float zoomSpeed = 10;
 	private float baseFOV = 60;
 	Camera _camera;
 	public int zoomLevel = 2;
 
 	void Start() {
-		Options = Options.getInstance();
 		_camera = Camera.main;
 		_camera.fieldOfView = baseFOV;
 	}
 
 	void Update() {
-		float radAngle = Options.fieldOfView * Mathf.Deg2Rad;
+		float radAngle = Purse.instance.options.fieldOfView * Mathf.Deg2Rad;
 		float radHFOV = 2 * Mathf.Atan(Mathf.Tan(radAngle / 2) * Screen.height / Screen.width);
 		float baseFOV = Mathf.Rad2Deg * radHFOV;
 

@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class MouseLook : MonoBehaviour {
-	Options Options;
 	public float sensitivity = 4f;
 	float invertFlag = 1f;
 
@@ -26,7 +25,6 @@ public class MouseLook : MonoBehaviour {
 	Transform camTransform;	
 	
 	void Start() {
-		Options = Options.getInstance();
 		playerTransform = transform;		
 		originalPlayerRotation = playerTransform.localRotation;
 		camTransform = Camera.main.transform;
@@ -45,13 +43,13 @@ public class MouseLook : MonoBehaviour {
 		rotAverageX = 0f;
 		rotAverageY = 0f;
 
-		invertFlag = Options.invertYAxis ? -1f : 1f;
+		invertFlag = Purse.instance.options.invertYAxis ? -1f : 1f;
 		
-		sensitivity = Options.lookSensitivity;
+		sensitivity = Purse.instance.options.lookSensitivity;
 		
 		rotationX += Input.GetAxisRaw("Mouse X") * sensitivity;
 
-		if (Options.smoothMouse && !ControllerCheck.usingController)
+		if (Purse.instance.options.smoothMouse && !ControllerCheck.usingController)
 		{
 			rotArrayX.Add(rotationX);
 			if (rotArrayX.Count >= smoothingFrames)
@@ -75,7 +73,7 @@ public class MouseLook : MonoBehaviour {
 		rotationY += Input.GetAxisRaw("Mouse Y") * sensitivity * invertFlag;
 		rotationY = Mathf.Clamp(rotationY, minimumY, maximumY);
 
-		if (Options.smoothMouse && !ControllerCheck.usingController)
+		if (Purse.instance.options.smoothMouse && !ControllerCheck.usingController)
 		{
 			rotArrayY.Add(rotationY);
 			if (rotArrayY.Count >= smoothingFrames)

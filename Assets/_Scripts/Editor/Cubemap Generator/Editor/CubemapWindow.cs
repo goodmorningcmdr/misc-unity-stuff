@@ -14,7 +14,7 @@ class CubemapWindow: ScriptableWizard {
 		_1024x1024,
 		_2048x2048
 	}
-	public res resolution = res._2048x2048; 
+	public res resolution = res._1024x1024; 
 	public LayerMask reflect =~0;
 	
     void OnWizardUpdate () {
