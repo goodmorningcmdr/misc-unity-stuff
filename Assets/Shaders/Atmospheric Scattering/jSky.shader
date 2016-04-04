@@ -30,9 +30,7 @@ and implementation by Simon Wallner
 http://www.simonwallner.at/projects/atmospheric-scattering
 */
 
-// modified by Allen (alllen.tumblr.com) on March 31, 2016
-
-Shader "Skybox/jSky/Atmospheric Scattering" //more descriptive name to make it easier to find
+Shader "Skybox/jSky/Atmospheric Scattering"
 {
 	//-----------------------------------------------------------------------------
 	// Properties
@@ -50,44 +48,7 @@ Shader "Skybox/jSky/Atmospheric Scattering" //more descriptive name to make it e
 
 		_sunIntensity("Sun Intensity", Float) = 1000.0
 
-		[HideInInspector]
-		_M_PI("pi", Float) = 3.14159265358979323846264338327
-
-		[HideInInspector]
-		_up ("up", Vector) = (0.0, 1.0, 0.0)
-
-		[HideInInspector]
-		_refractiveIndex("ri", Float) = 1.0003
-
-		[HideInInspector]
-		_moleculesPerUnit("mpu", Float) = 25450000000000000000000000
-
-		[HideInInspector]
-		_depolatizationFactor("depol", Float) = 0.035
-
-		[HideInInspector]
-		_wavelength ("wave", Vector) = (0.00000068, 0.00000055, 0.00000045)
-
-		[HideInInspector]
-		_kCoefficient ("kCoe", Vector) = (0.686, 0.678, 0.666)
-
-		[HideInInspector]
-		_vCoefficient("vCoe", Float) = 4.0
-
-		[HideInInspector]
-		_rayleighZenithLength("ray", Float) = 8400
-
-		[HideInInspector]
-		_mieZenithLength("zen", Float) = 1250
-
-		[HideInInspector]
-		_sunAngularDiameterCos("suncos", Float) = 0.9997993194915
-
-		[HideInInspector]
-		_cutoffAngle("cut", Float) = 1.6110731556870734556218684016769
-
-		[HideInInspector]
-		_steepness("steep", Float) = 1.5
+		_sunAngularDiameterCos("Sun Size", Float) = 1
 	}
 
 	//-----------------------------------------------------------------------------
@@ -95,8 +56,9 @@ Shader "Skybox/jSky/Atmospheric Scattering" //more descriptive name to make it e
 	//-----------------------------------------------------------------------------
 
 	CGINCLUDE
-
 	#include "UnityCG.cginc"
+
+	#pragma target 3.0
 
 	//-----------------------------------------------------------------------------
 	// Variables
@@ -107,20 +69,20 @@ Shader "Skybox/jSky/Atmospheric Scattering" //more descriptive name to make it e
 	float _mieCoefficient;
 	float _mieDirectionalG;
 	float _sunIntensity;
-	
-	float _refractiveIndex;
-	float _moleculesPerUnit;
-	float _depolatizationFactor;
-	float3 _wavelength;
-	float3 _kCoefficient;
-	float _vCoefficient;
-	float _rayleighZenithLength;
-	float _mieZenithLength;
 	float _sunAngularDiameterCos;
-	float _cutoffAngle;
-	float _steepness;
-	float3 _up;
-	float _M_PI;
+
+	static const float _M_PI = 3.14159265358979323846264338327;
+	static const float3 _up = float3(0.0, 1.0, 0.0);
+	static const float _refractiveIndex = 1.0003;
+	static const float _depolatizationFactor = 0.035;
+	static const float3	_wavelength = float3(680E-9, 550E-9, 450E-9);
+	static const float3	_kCoefficient = float3(0.686, 0.678, 0.666);
+	static const float _vCoefficient = 4.0;
+	static const float _rayleighZenithLength = 8.4E3;
+	static const float _mieZenithLength = 1.25E3;
+	static const float _cutoffAngle = 1.95;
+	static const float _steepness  = 1.5;
+	static const float _moleculesPerUnit = 2.545E25;
 
 	//-----------------------------------------------------------------------------
 	// Functions
@@ -128,12 +90,12 @@ Shader "Skybox/jSky/Atmospheric Scattering" //more descriptive name to make it e
 
 	float3 totalRayleigh(float3 lambda)
 	{
-		return (8.0 * pow(_M_PI, 3.0) * pow(pow(_refractiveIndex, 2.0) - 1.0, 2.0) * (6.0 + 3.0 * _depolatizationFactor)) / (3.0 * _moleculesPerUnit * pow(lambda, float3(4.0, 4.0, 4.0)) * (6.0 - 7.0 * _depolatizationFactor));
+		return (8.0 * pow(_M_PI, 3.0) * pow(pow(_refractiveIndex, 2.0) - 1.0, 2.0) * (9 * _depolatizationFactor)) / (3.0 * _moleculesPerUnit) * pow(lambda, float3(4.0, 4.0, 4.0)) * (6.0 - 7.0 * _depolatizationFactor);
 	}
 
 	float rayleighPhase(float cosViewSunAngle)
 	{
-		return (2.0 / (4.0*_M_PI)) * (1.0 + pow(cosViewSunAngle, 2.0));
+		return (2.0 / (4.0*_M_PI)) * (pow(cosViewSunAngle, 2.0));
 	}
 
 	float3 totalMie(float3 lambda, float3 K, float T)
@@ -193,7 +155,7 @@ Shader "Skybox/jSky/Atmospheric Scattering" //more descriptive name to make it e
 	{
 		float ln = normalize(i.worldPos - _WorldSpaceLightPos0);
 
-		float sunE = _sunIntensity * max(0.0, 1.0 - exp(-((_cutoffAngle - acos(dot(_WorldSpaceLightPos0, _up))) / _steepness)));
+		float sunE = _sunIntensity * max(0.0, 1.0 - exp(-((_M_PI / _cutoffAngle - acos(dot(_WorldSpaceLightPos0, _up))) / _steepness)));
 
 		// extinction (absorbtion + out scattering)
 		// rayleigh coefficients
@@ -221,7 +183,7 @@ Shader "Skybox/jSky/Atmospheric Scattering" //more descriptive name to make it e
 		float3 betaMTheta = betaM * mPhase;
 
 		float3 Lin = pow(sunE * ((betaRTheta + betaMTheta) / (betaR + betaM)) * (1.0 - Fex), float3(1.3, 1.3, 1.3));
-		Lin *= lerp(float3(1.0, 1.0, 1.0),pow(sunE * ((betaRTheta + betaMTheta) / (betaR + betaM)) * Fex, float3(1.0 / 2.0, 1.0 / 2.0, 1.0 / 2.0)),clamp(pow(1.0 - dot(_up, _WorldSpaceLightPos0),5.0),0.0,1.0));
+		Lin *= lerp(float3(1.0, 1.0, 1.0),pow(sunE * ((betaRTheta + betaMTheta) / (betaR + betaM)) * Fex, float3(0.5, 0.5, 0.5)),clamp(pow(1.0 - dot(_up, _WorldSpaceLightPos0),5.0),0.0,1.0));
 
 		// nightsky
 		float3 direction = normalize(i.worldPos - _WorldSpaceCameraPos);
@@ -229,9 +191,9 @@ Shader "Skybox/jSky/Atmospheric Scattering" //more descriptive name to make it e
 		float phi = atan2(direction.y, direction.x); // azimuth --> x-axis [-pi/2, pi/2]
 		float2 uv = float2(phi, theta) / float2(2.0*_M_PI, _M_PI) + float2(0.5, 0.0);
 		float3 L0 = float3(0.1, 0.1, 0.1) * Fex;
-
-		float sundisk = smoothstep(_sunAngularDiameterCos, _sunAngularDiameterCos +0.00009, cosViewSunAngle);
-		if (normalize(i.worldPos - _WorldSpaceCameraPos).y>0.0)
+		float ssize = 0.9998 - (_sunAngularDiameterCos * .00009f);
+		float sundisk = smoothstep(ssize, ssize + 0.00009, cosViewSunAngle);
+		if (normalize(i.worldPos - _WorldSpaceCameraPos).y > 0.0)
 			L0 += (sunE * 19000.0 * Fex)*sundisk;
 
 		float W = 1000.0;
