@@ -24,7 +24,7 @@ public class Purse : MonoBehaviour {
 	void Awake() {
 		if (instance == null)
 		{
-			Debug.LogError("This shit is fucked", this.transform);
+			//Debug.LogError("This shit is fucked", this.transform);
 			Init();
 		}
 		options = new Options();
