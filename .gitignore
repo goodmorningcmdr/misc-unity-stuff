@@ -1,8 +1,12 @@
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
-Assets/Test/
-Test.meta
+Assets/zzTest/
+zzTest.meta
+Assets/Store/
+Store.meta
+Assets/Mini-Games
+Mini-Games.meta
 
 ExportedObj/
 *.csproj
