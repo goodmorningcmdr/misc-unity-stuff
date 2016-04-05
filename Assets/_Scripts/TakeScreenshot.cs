@@ -6,20 +6,7 @@ public class TakeScreenshot : MonoBehaviour {
 	public static int startNumber = 1;
 	
 	void SaveScreenshot() {
-		string dest = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
-		dest += "/" + Application.productName;
-
-		try
-		{
-			if (!System.IO.Directory.Exists(dest))
-			{
-				System.IO.Directory.CreateDirectory(dest);
-			}
-		}
-		catch (System.IO.IOException ex)
-		{
-			System.Console.WriteLine(ex.Message);
-		}
+		string dest = Application.persistentDataPath;
 
 		int number = startNumber;
 		string name = "" + number;
@@ -40,6 +27,6 @@ public class TakeScreenshot : MonoBehaviour {
 	}
 
 	void Update() {
-        if (Input.GetKeyDown(KeyCode.Print)) SaveScreenshot();	
+        if (Input.GetKeyDown(KeyCode.F12)) SaveScreenshot();	
 	}
 }

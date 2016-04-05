@@ -65,7 +65,7 @@ public class FilterComponents : EditorWindow {
 			scrollPos = EditorGUILayout.BeginScrollView(scrollPos);
 			EditorGUILayout.Space();
 
-			List<Component> compList = ExtensionMethods.FindAllObjectsOfType<Component>().OrderBy(go => go.GetType().ToString()).ToList();
+			List<Component> compList = Util.FindAllObjectsOfType<Component>().OrderBy(go => go.GetType().ToString()).ToList();
 	
 			bool found = false;
 

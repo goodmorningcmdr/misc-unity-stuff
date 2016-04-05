@@ -19,7 +19,7 @@
 //THE SOFTWARE.
 
 
-Shader "FresnelPack/Diffuse" 
+Shader "Fresnel/Diffuse" 
 {
 	Properties 
 	{

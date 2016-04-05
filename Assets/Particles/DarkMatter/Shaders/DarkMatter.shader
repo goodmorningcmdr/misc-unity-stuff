@@ -1,4 +1,4 @@
-﻿Shader "DarkMatter" 
+﻿Shader "Custom/DarkMatter" 
 {
     Properties 
 	{

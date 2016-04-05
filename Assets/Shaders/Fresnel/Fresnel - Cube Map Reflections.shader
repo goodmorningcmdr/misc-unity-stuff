@@ -18,7 +18,7 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //THE SOFTWARE.
 
-Shader "FresnelPack/Cube Map Reflections" 
+Shader "Fresnel/Cube Map Reflections" 
 {
 	Properties 
 	{

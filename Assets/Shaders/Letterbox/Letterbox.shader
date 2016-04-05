@@ -1,9 +1,8 @@
-﻿Shader "Hidden/Letterbox"
+Shader "Hidden/Letterbox"
 {
 	Properties
 	{
 		_MainTex ("Base (RGB)", 2D) = "white" {}
-		_FillColor ("Color (RGB) Opacity (A)", Color) = (0, 0, 0, 1)
 		_Offsets ("Top/Left (X) Bottom/Right (Y)", Vector) = (0, 0, 0, 0)
 	}
 
@@ -12,8 +11,8 @@
 		#include "UnityCG.cginc"
 
 		sampler2D _MainTex;
-		half4 _FillColor;
 		half2 _Offsets;
+		static const half4 _FillColor = half4(0, 0, 0, 0);
 
 		half4 frag_letter(v2f_img i) : SV_Target
 		{
@@ -38,7 +37,6 @@
 		ZTest Always Cull Off ZWrite Off
 		Fog { Mode off }
 
-		// (0) Letterboxing
 		Pass
 		{			
 			CGPROGRAM
@@ -50,7 +48,6 @@
 			ENDCG
 		}
 
-		// (1) Pillarboxing
 		Pass
 		{			
 			CGPROGRAM
@@ -62,6 +59,5 @@
 			ENDCG
 		}
 	}
-
 	FallBack off
 }

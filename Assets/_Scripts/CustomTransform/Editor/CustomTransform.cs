@@ -49,9 +49,8 @@ public class CustomTransform : Editor {
 		GUILayout.FlexibleSpace();
 
 		if (GUILayout.Button(" P ")) _transform.localPosition = (Event.current.modifiers == EventModifiers.Control) ? Random.insideUnitSphere * 10 : Vector3.zero;
-		if (GUILayout.Button(" R ")) _transform.localRotation = (Event.current.modifiers == EventModifiers.Control) ? Quaternion.identity.insideUnitSphere(360) : Quaternion.identity;
+		if (GUILayout.Button(" R ")) _transform.eulerAngles = (Event.current.modifiers == EventModifiers.Control) ? new Vector3(Mathf.Round(_transform.eulerAngles.x), Mathf.Round(_transform.eulerAngles.y), Mathf.Round(_transform.eulerAngles.z)) : Vector3.zero;
 		if (GUILayout.Button(" S ")) _transform.localScale = (Event.current.modifiers == EventModifiers.Control) ? (Vector3.one * (Random.Range(1, 11))) : Vector3.one;
-
 
 		if (GUILayout.Button(" All "))
 		{
@@ -96,4 +95,16 @@ public class CustomTransform : Editor {
 
 		EditorGUILayout.EndHorizontal();
     }
+
+	[MenuItem("Tools/Other/Round Rotations")]
+	static void RoundRotations() {
+		foreach(GameObject go in GameObject.FindGameObjectsWithTag("Untagged"))
+		{
+			if (go.scene == UnityEngine.SceneManagement.SceneManager.GetActiveScene())
+			{
+				go.transform.eulerAngles = new Vector3(Mathf.Round(go.transform.eulerAngles.x), Mathf.Round(go.transform.eulerAngles.y), Mathf.Round(go.transform.eulerAngles.z));
+			}
+		}
+		UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(UnityEditor.SceneManagement.EditorSceneManager.GetActiveScene());
+	}
 }

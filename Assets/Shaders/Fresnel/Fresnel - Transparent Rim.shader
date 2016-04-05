@@ -19,7 +19,7 @@
 //THE SOFTWARE.
 
 
-Shader "FresnelPack/Transparent Rim Unlit" 
+Shader "Fresnel/Transparent Rim Unlit" 
 {
 	Properties 
 	{

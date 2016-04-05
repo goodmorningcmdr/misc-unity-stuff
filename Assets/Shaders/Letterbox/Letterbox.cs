@@ -3,7 +3,7 @@ using UnityEngine;
 [AddComponentMenu("Image Effects/Letterbox")]
 [ExecuteInEditMode, RequireComponent(typeof(Camera))]
 public class Letterbox : MonoBehaviour {
-	public float Aspect = 21f / 9f;
+	public float Aspect = 21 / 9;
 	
 	public Shader shader;
 	
@@ -48,7 +48,7 @@ public class Letterbox : MonoBehaviour {
 		float w = (float)source.width;
 		float h = (float)source.height;
 		float currentAspect = w / h;
-		float offset = 0f;
+		float offset = 0;
 		int pass = 0;
 
 		if (currentAspect < Aspect)
@@ -66,7 +66,7 @@ public class Letterbox : MonoBehaviour {
 			return;
 		}
 
-		material.SetVector("_Offsets", new Vector2(offset, 1f - offset));
+		material.SetVector("_Offsets", new Vector2(offset, 1 - offset));
 		Graphics.Blit(source, destination, material, pass);
 	}
 }

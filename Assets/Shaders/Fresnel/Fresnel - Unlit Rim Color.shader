@@ -19,7 +19,7 @@
 //THE SOFTWARE.
 
 
-Shader "FresnelPack/Unlit Rim Color" 
+Shader "Fresnel/Unlit Rim Color" 
 {
 	Properties 
 	{

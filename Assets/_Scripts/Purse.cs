@@ -5,6 +5,7 @@ public class Purse : MonoBehaviour {
 	public static Purse instance;
 
 	public Options options;
+	[HideInInspector]
 	public TakeScreenshot screenshot;
 
 	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
@@ -14,21 +15,21 @@ public class Purse : MonoBehaviour {
 			instance = this;
 			DontDestroyOnLoad(this);
 		}
-		else
+		else if (instance != this)
 		{
 			Destroy(this);
 			return;
 		}
+		screenshot = gameObject.AddComponent<TakeScreenshot>();
+		options = new Options();
+		LoadOptions(System.IO.File.ReadAllText(fileName()));
 	}
 	
 	void Awake() {
 		if (instance == null)
 		{
-			//Debug.LogError("This shit is fucked", this.transform);
 			Init();
 		}
-		options = new Options();
-		LoadOptions(System.IO.File.ReadAllText(fileName()));
 	}
 
 	void Update() {
@@ -36,13 +37,17 @@ public class Purse : MonoBehaviour {
 	}
 
 	string savedData;
-	string fileName() {
-		string _fileName = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments) + "/" + Application.productName;
 
-		try { if (!System.IO.Directory.Exists(_fileName)) { System.IO.Directory.CreateDirectory(_fileName); } }
-		catch (System.IO.IOException ex) { System.Console.WriteLine(ex.Message); }
+	string fileName() {
+		string _fileName = Application.persistentDataPath;
 
 		_fileName += "/" + Application.productName.ToLower() + "_settings.gmc";
+
+		if (!System.IO.File.Exists(_fileName))
+		{
+			System.IO.FileStream.Null.Close();
+			System.IO.File.CreateText(_fileName);
+		}
 		return _fileName;
 	}
 
@@ -60,11 +65,13 @@ public class Purse : MonoBehaviour {
 
 	public void SaveOptions() {
 		savedData = JsonUtility.ToJson(options, true);
+
 		System.IO.File.WriteAllText(fileName(), savedData);
 	}
 
 	public void LoadOptions(string savedData) {
 		if (!System.IO.File.Exists(fileName())) return;
+
 		JsonUtility.FromJsonOverwrite(savedData, options);
 	}
 }
