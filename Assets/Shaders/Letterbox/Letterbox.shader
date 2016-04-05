@@ -12,7 +12,7 @@ Shader "Hidden/Letterbox"
 
 		sampler2D _MainTex;
 		half2 _Offsets;
-		static const half4 _FillColor = half4(0, 0, 0, 0);
+		static const half4 _FillColor = half4(0, 0, 0, 1);
 
 		half4 frag_letter(v2f_img i) : SV_Target
 		{

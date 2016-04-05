@@ -7,6 +7,10 @@ Assets/Store/
 Store.meta
 Assets/Mini-Games
 Mini-Games.meta
+Assets/GMC/
+GMC.meta
+Assets/_Stuff
+_Stuff.meta
 
 ExportedObj/
 *.csproj

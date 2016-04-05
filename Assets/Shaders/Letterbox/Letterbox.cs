@@ -3,7 +3,7 @@ using UnityEngine;
 [AddComponentMenu("Image Effects/Letterbox")]
 [ExecuteInEditMode, RequireComponent(typeof(Camera))]
 public class Letterbox : MonoBehaviour {
-	public float Aspect = 21 / 9;
+	public float Aspect = 21f / 9f;
 	
 	public Shader shader;
 	
