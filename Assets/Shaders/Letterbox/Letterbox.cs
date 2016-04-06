@@ -3,6 +3,7 @@ using UnityEngine;
 [AddComponentMenu("Image Effects/Letterbox")]
 [ExecuteInEditMode, RequireComponent(typeof(Camera))]
 public class Letterbox : MonoBehaviour {
+
 	public float Aspect = 21f / 9f;
 	
 	public Shader shader;
@@ -31,10 +32,10 @@ public class Letterbox : MonoBehaviour {
 			return;
 		}
 
-		RenderTexture rt = RenderTexture.GetTemporary(source.width, source.height);
-		Graphics.Blit(source, rt);
-		OnRenderImage(rt, destination);
-		RenderTexture.ReleaseTemporary(rt);
+		RenderTexture _rendTex = RenderTexture.GetTemporary(source.width, source.height);
+		Graphics.Blit(source, _rendTex);
+		OnRenderImage(_rendTex, destination);
+		RenderTexture.ReleaseTemporary(_rendTex);
 	}
 
 	void OnRenderImage(RenderTexture source, RenderTexture destination) {

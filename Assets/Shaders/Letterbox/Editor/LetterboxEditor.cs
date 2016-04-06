@@ -31,9 +31,10 @@ public class LetterboxEditor : Editor {
 
 		return content;
 	}
+
 	static GUIContent[] presets = 
 	{
-		new GUIContent("Choose a preset"),
+		new GUIContent("Choose Preset"),
 		new GUIContent("6:5"),
 		new GUIContent("5:4"),
 		new GUIContent("4:3"),
